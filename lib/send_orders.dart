@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'package:http/http.dart' as http;
 
 //import 'package:flutter_flux/flutter_flux.dart';
 
 
-class DeribitClient {
+class DeribitClient with SecureStoreMixin {
 //  final String api_key;
 //  final String api_secret;
 //  final bool testnet;
@@ -36,4 +37,21 @@ class DeribitClient {
   }
 
 
+}
+
+
+class SecureStoreMixin {
+  final secureStore = FlutterSecureStorage();
+
+  void setSecureStore(String key, String value) async {
+    await secureStore.write(key: key, value: value);
+  }
+
+  void getSecureStore(String key, Function callback) async {
+    await secureStore.read(key: key).then(callback);
+  }
+
+  void printLol() {
+    print("Did the method lol");
+  }
 }

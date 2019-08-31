@@ -26,6 +26,7 @@ dependencies:
 
   http: any
 #  flutter_flux: any
+  flutter_secure_storage: ^3.2.1+1
 
 dev_dependencies:
   flutter_test:

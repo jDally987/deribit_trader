@@ -1,31 +1,9 @@
-import 'package:flutter/foundation.dart'
-    show debugDefaultTargetPlatformOverride;
-import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:deribit_trader/send_orders.dart';
 
-//void main() => runApp(MyApp());
-void main() {
-  // See https://github.com/flutter/flutter/wiki/Desktop-shells#target-platform-override
-//  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-  _setTargetPlatformForDesktop();
-
-  runApp(MyApp());
-}
-
-void _setTargetPlatformForDesktop() {
-  TargetPlatform targetPlatform;
-  if (Platform.isMacOS) {
-    targetPlatform = TargetPlatform.iOS;
-  } else if (Platform.isLinux || Platform.isWindows) {
-    targetPlatform = TargetPlatform.android;
-  }
-  if (targetPlatform != null) {
-    debugDefaultTargetPlatformOverride = targetPlatform;
-  }
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -34,8 +12,6 @@ class MyApp extends StatelessWidget {
       title: 'Deribit Trader lol!',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        // See https://github.com/flutter/flutter/wiki/Desktop-shells#fonts
-        fontFamily: 'Roboto',
       ),
       home: MyHomePage(title: 'Hopefully a button shows up here'),
     );

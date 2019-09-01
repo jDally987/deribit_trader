@@ -13,10 +13,56 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Hopefully a button shows up here'),
+      home: Scaffold(
+        appBar: AppBar(title: Text("Deribit Tradeur :}"),),
+        body: Column(
+          children: <Widget>[
+            Row(  // Contract selection
+              children: <Widget>[
+                Column(   // Combobox?
+                  children: <Widget>[Slider(value: 0, min: 0, max: 16, onChanged: (val)=>print("Slider changed lol: $val"))],
+                ),
+                Column(   // "x 1000 contracts" text
+                  children: <Widget>[Text("x 1000 contracts")],
+                )
+              ],
+            ),
+            Row(  // Mkt buy+sell buttons
+              children: <Widget>[
+                Column(   // mkt BUY button
+                  children: <Widget>[BuyButton()],
+                ),
+                Column(   // mkt SELL button
+                  children: <Widget>[BuyButton()],  //TODO: change to sell
+                )
+              ],
+            )
+          ],
+        ),
+      )
+//      home: MyHomePage(title: 'Hopefully a button shows up here'),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+------------------THIS IS ALL OLD CODE BELOW THIS LINE!!!-----------------------
+ */
+
+
+
+
 
 final DeribitClient client = DeribitClient();
 

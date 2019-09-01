@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:http/http.dart' as http;
 
 import 'APIKEYS.dart';
 
-import 'package:http/http.dart' as http;
 
 //import 'package:flutter_flux/flutter_flux.dart';
 
@@ -50,37 +50,7 @@ class DeribitClient {
     }else{
       throw Exception('Request failed with status code ${getresp.statusCode}');
     }
-
-//    resp = streamedresp.stream
-//        .transform(utf8.decoder)
-//        .transform(json.decoder)
-//        .expa
   }
 
 
-}
-
-
-class SecureStoreMixin {
-  final secureStore = FlutterSecureStorage();
-
-  void setSecureStore(String key, String value) async {
-    await secureStore.write(key: key, value: value);
-  }
-
-  void getSecureStore(String key, Function callback) async {
-    await secureStore.read(key: key).then(callback);
-  }
-
-  Future<Map<String, String>> allValues(Function callback) {
-    return secureStore.readAll().then(callback);
-  }
-
-  void deleteAllSecureStorage() async {
-    await secureStore.deleteAll();
-  }
-
-  void printLol() {
-    print("Did the method lol");
-  }
 }
